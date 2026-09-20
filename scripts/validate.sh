@@ -11,6 +11,7 @@ fail() {
 
 required_paths=(
   VERSION
+  scripts/check-packages.sh
   profiles/common/config/package-lists/common.list.chroot
   profiles/desktop/config/package-lists/desktop.list.chroot
   profiles/server/config/package-lists/server.list.chroot

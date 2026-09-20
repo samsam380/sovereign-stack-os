@@ -1,7 +1,10 @@
-.PHONY: validate configure-desktop configure-server build-desktop build-server clean
+.PHONY: validate check-packages configure-desktop configure-server build-desktop build-server clean
 
 validate:
 	./scripts/validate.sh
+
+check-packages:
+	./scripts/check-packages.sh
 
 configure-desktop:
 	./scripts/configure.sh desktop

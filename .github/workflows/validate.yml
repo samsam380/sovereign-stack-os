@@ -28,7 +28,7 @@ jobs:
             --volume "$GITHUB_WORKSPACE:/workspace" \
             --entrypoint /bin/bash \
             sovereign-stack-builder \
-            -lc './scripts/validate.sh && ./scripts/configure.sh desktop && ./scripts/configure.sh server'
+            -lc 'apt-get update >/dev/null && ./scripts/check-packages.sh && ./scripts/validate.sh && ./scripts/configure.sh desktop && ./scripts/configure.sh server'
 
       - name: Confirm generated overlays
         run: |

@@ -49,6 +49,16 @@ The build script generates:
 ```text
 out/sovereign-stack-os-<version>-desktop-amd64.iso
 out/sovereign-stack-os-<version>-desktop-amd64.iso.sha256
+out/sovereign-stack-os-<version>-desktop-amd64.binary.packages.txt
+out/sovereign-stack-os-<version>-desktop-amd64.chroot.packages.install.txt
+```
+
+To check all requested package names against the currently configured Debian
+repositories before a full build, update APT metadata and run:
+
+```bash
+sudo apt update
+./scripts/check-packages.sh
 ```
 
 ## Mirror override
