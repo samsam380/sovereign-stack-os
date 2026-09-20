@@ -1,0 +1,61 @@
+name: Build ISO
+
+on:
+  workflow_dispatch:
+    inputs:
+      edition:
+        description: Edition to build
+        required: true
+        default: desktop
+        type: choice
+        options:
+          - desktop
+          - server
+          - both
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        edition:
+          - desktop
+          - server
+
+    steps:
+      - name: Check out source
+        if: inputs.edition == 'both' || inputs.edition == matrix.edition
+        uses: actions/checkout@v4
+
+      - name: Free runner disk space
+        if: inputs.edition == 'both' || inputs.edition == matrix.edition
+        run: |
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /usr/share/dotnet
+
+      - name: Build Debian 13 tool environment
+        if: inputs.edition == 'both' || inputs.edition == matrix.edition
+        run: docker build --tag sovereign-stack-builder --file builder/Dockerfile .
+
+      - name: Build ${{ matrix.edition }} ISO
+        if: inputs.edition == 'both' || inputs.edition == matrix.edition
+        run: |
+          docker run --rm --privileged \
+            --volume "$GITHUB_WORKSPACE:/workspace" \
+            sovereign-stack-builder "${{ matrix.edition }}"
+
+      - name: Upload ${{ matrix.edition }} image and manifests
+        if: inputs.edition == 'both' || inputs.edition == matrix.edition
+        uses: actions/upload-artifact@v4
+        with:
+          name: sovereign-stack-os-${{ matrix.edition }}-amd64
+          path: out/*-${{ matrix.edition }}-amd64.iso*
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7

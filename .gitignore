@@ -1,0 +1,9 @@
+/build/
+/out/
+*.iso
+*.img
+*.hybrid.iso
+*.sha256
+*.log
+.DS_Store
+*~

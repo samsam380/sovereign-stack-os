@@ -1,0 +1,19 @@
+#!/bin/sh
+set -eu
+
+state_dir="${XDG_CONFIG_HOME:-${HOME}/.config}/sovereign-stack"
+state_file="${state_dir}/desktop-defaults-v1"
+wallpaper="/usr/share/wallpapers/SovereignStack/contents/images/3840x2160.svg"
+
+[ -e "$state_file" ] && exit 0
+mkdir -p "$state_dir"
+
+if command -v kwriteconfig6 >/dev/null 2>&1; then
+  kwriteconfig6 --file kdeglobals --group General --key ColorScheme BreezeDark || true
+fi
+
+if command -v plasma-apply-wallpaperimage >/dev/null 2>&1 && [ -r "$wallpaper" ]; then
+  plasma-apply-wallpaperimage "$wallpaper" >/dev/null 2>&1 || true
+fi
+
+: > "$state_file"

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Sovereign Stack first-login setup
+Comment=Apply local Sovereign Stack desktop defaults once
+Exec=/usr/local/bin/sovereign-first-login
+OnlyShowIn=KDE;
+NoDisplay=true
+X-KDE-autostart-after=panel

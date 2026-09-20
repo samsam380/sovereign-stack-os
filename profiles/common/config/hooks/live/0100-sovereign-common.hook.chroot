@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+
+ln -sfn /usr/lib/os-release /etc/os-release
+ln -sfn sovereign-stack /etc/dpkg/origins/default
+
+chmod 0755 /usr/local/bin/sovereign-info
+chmod 0755 /usr/local/sbin/sovereign-firewall
+
+systemctl enable apparmor.service >/dev/null 2>&1 || true
+systemctl enable auditd.service >/dev/null 2>&1 || true
+systemctl enable fstrim.timer >/dev/null 2>&1 || true
+systemctl enable unattended-upgrades.service >/dev/null 2>&1 || true

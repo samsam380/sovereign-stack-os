@@ -1,0 +1,38 @@
+name: Validate configuration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Build Debian 13 tool environment
+        run: docker build --tag sovereign-stack-builder --file builder/Dockerfile .
+
+      - name: Validate source and both profiles
+        run: |
+          docker run --rm \
+            --volume "$GITHUB_WORKSPACE:/workspace" \
+            --entrypoint /bin/bash \
+            sovereign-stack-builder \
+            -lc './scripts/validate.sh && ./scripts/configure.sh desktop && ./scripts/configure.sh server'
+
+      - name: Confirm generated overlays
+        run: |
+          test -f build/desktop/config/package-lists/desktop.list.chroot
+          test -f build/server/config/package-lists/server.list.chroot
+          test -f build/desktop/config/includes.chroot/usr/lib/os-release
+          test -f build/server/config/includes.chroot/usr/lib/os-release

@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+
+chmod 0755 /usr/local/bin/sovereign-first-login
+
+launcher=/usr/share/applications/calamares-install-debian.desktop
+if [ -f "$launcher" ]; then
+  sed -i 's/^Name=.*/Name=Install Sovereign Stack OS/' "$launcher"
+  sed -i 's/^Comment=.*/Comment=Install Sovereign Stack OS to this computer/' "$launcher"
+  sed -i 's/^Icon=.*/Icon=sovereign-stack/' "$launcher"
+fi
+
+systemctl enable sddm.service >/dev/null 2>&1 || true

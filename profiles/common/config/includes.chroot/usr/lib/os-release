@@ -1,0 +1,14 @@
+PRETTY_NAME="Sovereign Stack OS 0.1 (Trixie)"
+NAME="Sovereign Stack OS"
+VERSION="0.1 (Trixie)"
+VERSION_ID="0.1"
+VERSION_CODENAME=trixie
+DEBIAN_CODENAME=trixie
+ID=sovereign-stack
+ID_LIKE=debian
+HOME_URL="https://github.com/samsam380/sovereign-stack-os"
+DOCUMENTATION_URL="https://github.com/samsam380/sovereign-stack-os/tree/main/docs"
+SUPPORT_URL="https://github.com/samsam380/sovereign-stack-os/issues"
+BUG_REPORT_URL="https://github.com/samsam380/sovereign-stack-os/issues"
+ANSI_COLOR="0;36"
+LOGO=sovereign-stack

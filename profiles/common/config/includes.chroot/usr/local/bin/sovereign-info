@@ -1,0 +1,26 @@
+#!/bin/sh
+set -eu
+
+if [ -r /usr/lib/os-release ]; then
+  # shellcheck disable=SC1091
+  . /usr/lib/os-release
+else
+  PRETTY_NAME="Unknown Linux"
+fi
+
+edition="unknown"
+if [ -r /usr/share/sovereign-stack/edition ]; then
+  edition="$(cat /usr/share/sovereign-stack/edition)"
+fi
+
+printf '%s\n' "${PRETTY_NAME}"
+printf 'Edition: %s\n' "$edition"
+printf 'Kernel: %s\n' "$(uname -sr)"
+printf 'Architecture: %s\n' "$(dpkg --print-architecture 2>/dev/null || uname -m)"
+
+if command -v systemctl >/dev/null 2>&1; then
+  printf 'AppArmor service: %s\n' "$(systemctl is-enabled apparmor.service 2>/dev/null || echo unavailable)"
+  printf 'Automatic security updates: %s\n' "$(systemctl is-enabled unattended-upgrades.service 2>/dev/null || echo unavailable)"
+fi
+
+printf '%s\n' "Project: https://github.com/samsam380/sovereign-stack-os"

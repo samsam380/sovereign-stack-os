@@ -1,0 +1,22 @@
+# Remote administration and networking
+task-ssh-server
+fail2ban
+network-manager
+
+# Server operations
+containernetworking-plugins
+dnsutils
+ethtool
+fuse-overlayfs
+htop
+iotop-c
+jq
+lm-sensors
+lsof
+nano
+podman
+slirp4netns
+smartmontools
+tmux
+uidmap
+vim

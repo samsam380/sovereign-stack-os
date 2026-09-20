@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="45%" r="72%">
+      <stop offset="0" stop-color="#154d5e"/>
+      <stop offset="0.55" stop-color="#0d3643"/>
+      <stop offset="1" stop-color="#06171e"/>
+    </radialGradient>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop offset="0" stop-color="#2a8da3" stop-opacity="0"/>
+      <stop offset="0.25" stop-color="#2a8da3" stop-opacity="0.65"/>
+      <stop offset="0.75" stop-color="#42b7b1" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#42b7b1" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="3840" height="2160" fill="url(#glow)"/>
+  <g fill="none" stroke="url(#line)" stroke-width="20" stroke-linecap="round" opacity="0.82">
+    <path d="M360 760 C1060 330 1630 470 2180 790 C2720 1105 3240 1020 3510 790"/>
+    <path d="M260 1035 C1000 590 1640 725 2200 1045 C2760 1365 3260 1280 3580 1010"/>
+    <path d="M360 1310 C1060 880 1630 1020 2180 1340 C2720 1655 3240 1570 3510 1340"/>
+  </g>
+  <circle cx="1920" cy="1080" r="510" fill="none" stroke="#d4a84f" stroke-width="3" opacity="0.22"/>
+  <text x="1920" y="1810" text-anchor="middle" fill="#d8edf0" font-family="sans-serif" font-size="84" letter-spacing="22">SOVEREIGN STACK</text>
+</svg>

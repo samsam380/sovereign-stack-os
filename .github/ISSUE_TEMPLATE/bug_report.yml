@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a reproducible Sovereign Stack OS problem
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include passwords, private keys, seed phrases, access tokens, or sensitive production logs.
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Edition
+      options:
+        - Desktop
+        - Server
+        - Build system
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: 0.1.0-dev / commit SHA
+    validations:
+      required: true
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Hardware or virtual-machine details
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true

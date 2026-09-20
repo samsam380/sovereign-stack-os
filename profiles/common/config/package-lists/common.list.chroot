@@ -1,0 +1,27 @@
+# Live system foundation
+live-boot
+live-config
+live-config-systemd
+live-tools
+
+# Security and recovery
+apparmor
+apparmor-utils
+apt-listchanges
+auditd
+cryptsetup
+cryptsetup-initramfs
+needrestart
+nftables
+ufw
+unattended-upgrades
+
+# Base administration
+ca-certificates
+curl
+gnupg
+locales
+rsync
+sudo
+wget
+zstd

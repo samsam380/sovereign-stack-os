@@ -1,0 +1,21 @@
+# KDE Plasma desktop
+task-kde-desktop
+
+# Installer
+calamares
+calamares-settings-debian
+squashfs-tools
+user-setup
+
+# Local-first desktop applications
+firefox-esr
+flatpak
+fwupd
+kate
+kcalc
+keepassxc
+network-manager-openvpn
+okular
+partitionmanager
+plasma-discover-backend-flatpak
+spectacle
