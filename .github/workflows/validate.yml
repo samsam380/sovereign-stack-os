@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Check out source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Build Debian 13 tool environment
         run: docker build --tag sovereign-stack-builder --file builder/Dockerfile .

@@ -14,13 +14,13 @@ readonly EDITION="$1"
 case "$EDITION" in
   desktop)
     INSTALLER_GUI=true
-    ISO_VOLUME="SSOS_DESKTOP_AMD64"
+    ISO_VOLUME="SSOS_DESKTOP"
     LIVE_HOSTNAME="sovereign-stack"
     BOOT_PARAMETERS="boot=live components quiet splash username=sovereign hostname=${LIVE_HOSTNAME} locales=en_US.UTF-8 keyboard-layouts=us"
     ;;
   server)
     INSTALLER_GUI=false
-    ISO_VOLUME="SSOS_SERVER_AMD64"
+    ISO_VOLUME="SSOS_SERVER"
     LIVE_HOSTNAME="sovereign-server"
     BOOT_PARAMETERS="boot=live components username=sovereign hostname=${LIVE_HOSTNAME} locales=en_US.UTF-8 keyboard-layouts=us console=tty0 console=ttyS0,115200n8"
     ;;

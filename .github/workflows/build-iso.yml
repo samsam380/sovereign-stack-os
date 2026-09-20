@@ -30,7 +30,7 @@ jobs:
     steps:
       - name: Check out source
         if: inputs.edition == 'both' || inputs.edition == matrix.edition
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Free runner disk space
         if: inputs.edition == 'both' || inputs.edition == matrix.edition
@@ -52,10 +52,13 @@ jobs:
 
       - name: Upload ${{ matrix.edition }} image and manifests
         if: inputs.edition == 'both' || inputs.edition == matrix.edition
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: sovereign-stack-os-${{ matrix.edition }}-amd64
-          path: out/*-${{ matrix.edition }}-amd64.iso*
+          path: |
+            out/*-${{ matrix.edition }}-amd64.iso
+            out/*-${{ matrix.edition }}-amd64.iso.sha256
+            out/*-${{ matrix.edition }}-amd64.*.txt
           if-no-files-found: error
           compression-level: 0
           retention-days: 7
