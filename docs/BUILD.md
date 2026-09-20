@@ -49,9 +49,11 @@ The build script generates:
 ```text
 out/sovereign-stack-os-<version>-desktop-amd64.iso
 out/sovereign-stack-os-<version>-desktop-amd64.iso.sha256
-out/sovereign-stack-os-<version>-desktop-amd64.binary.packages.txt
-out/sovereign-stack-os-<version>-desktop-amd64.chroot.packages.install.txt
+out/sovereign-stack-os-<version>-desktop-amd64.<manifest>.txt
 ```
+
+The package-manifest filename depends on which manifest the installed
+`live-build` version emits.
 
 To check all requested package names against the currently configured Debian
 repositories before a full build, update APT metadata and run:
