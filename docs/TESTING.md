@@ -36,6 +36,8 @@ Test all of the following before physical installation:
 - installer starts
 - encrypted installation into a disposable virtual disk
 - reboot into the installed system
+- local console login displays the Sovereign Stack welcome artwork correctly in a UTF-8, 80-column terminal
+- interactive SSH login displays the same artwork once (Server, or Desktop with an SSH server installed and enabled)
 - Debian security repositories are enabled
 - `sudo sovereign-info` reports the expected edition
 - `sudo apt update && sudo apt upgrade` succeeds

@@ -49,6 +49,30 @@ sudo ./scripts/build.sh desktop
 
 See [docs/BUILD.md](docs/BUILD.md) for the complete procedure and [docs/TESTING.md](docs/TESTING.md) before installing on physical hardware.
 
+## Terminal welcome
+
+Both editions include the monochrome Sovereign Stack ribbons and wordmark in
+`/etc/motd`. The artwork uses plain UTF-8 block and box characters, fits an
+80-column console, and needs no graphics packages or login-time generator.
+Use a UTF-8 terminal with a font that supports these characters.
+
+Debian's standard PAM configuration displays the welcome after successful local
+console and interactive SSH logins. SSH sessions use the same artwork when an
+SSH server is installed and enabled. Run `sovereign-info` for system and edition
+information.
+
+To apply it to an existing installation, run these commands from your repository
+checkout:
+
+```bash
+git pull --ff-only
+sudo install --backup=numbered --mode=0644 \
+  profiles/common/config/includes.chroot/etc/motd /etc/motd
+```
+
+This keeps a numbered backup of the previous MOTD. The new artwork appears on
+the next login; rebuilding or reinstalling the OS is unnecessary for this change.
+
 ## Repository layout
 
 ```text
